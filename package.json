@@ -1,6 +1,6 @@
 {
   "name": "dicom-data-dictionary",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "DICOM Data Dictionary",
   "main": "dist/index.js",
   "repository": {
