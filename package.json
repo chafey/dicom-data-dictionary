@@ -1,0 +1,41 @@
+{
+  "name": "dicom-data-dictionary",
+  "version": "0.1.0",
+  "description": "DICOM Data Dictionary",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chafey/dicom-data-dictionary.git"
+  },
+  "keywords": [
+    "DICOM",
+    "Medical",
+    "Imaging"
+  ],
+  "author": "Chris Hafey <chafey@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chafey/dicom-data-dictionary/issues"
+  },
+  "homepage": "https://github.com/chafey/dicom-data-dictionary",
+  "scripts": {
+    "lint": "jshint lib/*.js",
+    "compile": "6to5 --modules common lib --out-dir dist",
+    "test": "mocha --compilers js:6to5/register",
+    "build": "npm clean && npm run lint && npm run compile && npm run test",
+    "watch": "onchange 'lib/**.js' 'test/**.js' -- npm run build",
+    "example": "compile && node example/example",
+    "example-es6": "6to5-node example/example-es6",
+    "publish": "git push && npm publish",
+    "clean": "rm -r dist/*"
+  },
+  "devDependencies": {
+    "6to5": "^2.13.3",
+    "jshint": "*",
+    "mocha": "*",
+    "onchange": "0.0.2"
+  },
+  "jshintConfig": {
+    "esnext": true
+  }
+}
