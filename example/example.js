@@ -7,6 +7,8 @@ require("6to5/register");
 
 // load the library
 var dicomDataDictionary = require('../dist');
+// or use the following line instead if package is installed via npm
+//var dicomDataDictionary = require('dicom-data-dictionary');
 
 // create a data element dictionary
 var dictionary = new dicomDataDictionary.DataElementDictionary();
