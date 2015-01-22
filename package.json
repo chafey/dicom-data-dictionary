@@ -22,7 +22,7 @@
     "lint": "jshint lib/*.js",
     "compile": "6to5 --modules common lib --out-dir dist",
     "test": "mocha --compilers js:6to5/register",
-    "build": "npm clean && npm run lint && npm run compile && npm run test",
+    "build": "npm run clean && npm run lint && npm run compile && npm run test",
     "watch": "onchange 'lib/**.js' 'test/**.js' -- npm run build",
     "example": "compile && node example/example",
     "example-es6": "6to5-node example/example-es6",

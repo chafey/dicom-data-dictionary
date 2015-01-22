@@ -11,22 +11,28 @@ to add in the future - pull requests are welcome!
 Usage
 =====
 
-This library is written using JavaScript ES6 and distributed as an ES5 CommonJS NPM
-module.  When using from Node.JS, you must require() the [6to5 polyfill](https://6to5.org/docs/usage/polyfill/)
-before loading this library.  You should be able to use this library from a web browser
-using browserify or jspm.
+This library is written using JavaScript ES6 and distributed as both ES6 code and ES5 code
+via NPM.  The ES5 code is generated using [6to5](http://6to5.org/) so you must use the
+polyfills as described [here](https://6to5.org/docs/usage/polyfill/).  Use in a pure ES6
+environment does not require any polyfills (see example/example-es6.js).  You should be able
+to use this library from a web browser using [browserify](http://browserify.org/) or
+[jspm](http://jspm.io/).
 
 Install from NPM
 
 > npm install dicom-data-dictionary
 
-see example/example.js for usage from Node.js ES5
+Example of using from ES5 environment using Node.JS
 
 > npm run example
 
-see example/example-es6.js for usage from Node.js with ES6
+Example of using from ES6 environment using 6to5-node
 
 > npm run example-es6
+
+Note - this module can take several seconds to load because it contains the entire data dictionary.  It is recommended
+to load this module asynchronously voa Syste.import() to avoid any startup related time penalties
+(especially if the module isn't needed right away).
 
 Building
 ========
@@ -45,7 +51,7 @@ Build
 
 > npm run build
 
-Automatically run lint, test and build on any file change
+Automatically run lint, test and build on any file change (when developing)
 
 > npm run watch
 
@@ -54,6 +60,7 @@ Bump the patch version number
 > npm version patch
 
 Bump the minor version number
+
 > npm version minor
 
 Bump the major version number

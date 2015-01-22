@@ -1,11 +1,19 @@
 //
-// This is an example of using the DICOM data dictionary from node using ES6
+// This is an example of using the ES6 version of DICOM data dictionary from 6to5-node
+// to run this example:
+//  npm run example-es6
 //
 
-// load the library
-var dicomDataDictionary = require('../dist');
-// or use the following line instead if package is installed via npm
-//var dicomDataDictionary = require('dicom-data-dictionary');
+// By default 6to5 ignores code in node_modules, we disable this so it can find it
+// when the library is installed via npm
+require("6to5/register")({
+    ignore: false
+});
+
+// load the library from the ES6 directory 'lib'
+import * as dicomDataDictionary from '../lib';
+// load the library from the node_modules directory if installed via npm install dicom-data-dictionary
+// import * as dicomDataDictionary from 'node_modules/dicom-data-dictionary/lib';
 
 // create a data element dictionary
 var dictionary = new dicomDataDictionary.DataElementDictionary();
